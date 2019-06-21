@@ -26,7 +26,7 @@ module.exports = async function setupDevServer(app, cb){
   const update = () => {
     if (bundle && clientManifest) {
       ready()
-      cb(clientManifest)
+      cb(bundle, clientManifest)
     }
   }
 
@@ -61,8 +61,8 @@ module.exports = async function setupDevServer(app, cb){
     update()
   })
 
-  // const mfs = new MFS()
-  // compilerServer.outputFileSystem = mfs
+  const mfs = new MFS()
+  compilerServer.outputFileSystem = mfs
 
   compilerServer.watch({}, (err, stats) => {
     if (err) {

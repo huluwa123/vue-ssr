@@ -18,7 +18,7 @@ if(baseWebpackConfig.mode === 'production'){
   }, {})
   // 小记：hmr文件 必须和入口文件放在一起哦！
 }
-console.log("entry::::::::::::", entry)
+
 const clientConf = merge(baseWebpackConfig, {
   entry,
   optimization: {
